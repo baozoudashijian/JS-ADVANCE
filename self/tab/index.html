@@ -4,8 +4,6 @@
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
-    <script src="js/index.js"></script>
     <link rel="stylesheet" href="css/index.css">
     <title>JS Bin</title>
 </head>
@@ -23,6 +21,24 @@
             <li>【搜索】</li>
         </ol>
     </div>
+    <div class="tabs tabs2">
+        <ol>
+            <li>推荐歌单</li>
+            <li>我的音乐</li>
+            <li>搜索</li>
+        </ol>
+        <ol>
+            <li>【推荐歌单】</li>
+            <li>【我的音乐】</li>
+            <li>【搜索】</li>
+        </ol>
+    </div>
+    <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
+    <script src="js/index.js"></script>
+    <script>
+        new Tabs('.tabs')
+        new Tabs('.tabs2')
+    </script>
 </body>
 
 </html>
