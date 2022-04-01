@@ -1,0 +1,21 @@
+.tabs ol {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+  .tabs ol:first-child {
+    display: flex
+  }
+  .tabs ol:first-child li.active {
+    color: #c00
+  }
+  .tabs ol:last-child li {
+    display: none
+  }
+  .tabs ol:last-child li.active {
+    display: block;
+  }
+  .tabs ol li {
+    padding: 4px;
+    cursor: pointer;
+  }
