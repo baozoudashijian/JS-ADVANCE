@@ -5,6 +5,10 @@
   <title>sticky</title>
 </head>
 <style>
+  * {
+    margin: 0;
+    padding: 0;
+  }
   #topbar {
     background-color: green;
     height: 60px;
@@ -18,6 +22,9 @@
     left: 0;
     width: 100%;
   }
+  .topbarPlaceholder {
+    height: 60px;
+  }
   .main {
     height: 800px
   }
@@ -26,8 +33,10 @@
   }
 </style>
 <body>
-  <div id="topbar">
-    topbar
+  <div class="topbarPlaceholder"> 
+    <div id="topbar">
+      topbar
+    </div>
   </div>
   <div class="main">
     <div class="sticky2">固定住2</div>
