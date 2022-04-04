@@ -37,7 +37,7 @@
   }
   #glueBtn.sticky {
     position: fixed;
-    top: 0;
+    top: 60px;
     left: 0;
   }
 </style>
@@ -71,7 +71,7 @@
         $('#topbar').removeClass('sticky')
       }
 
-      if(scrollY > buttonOffset.top) {
+      if(scrollY + 60 > buttonOffset.top) {
         $('#glueBtn').addClass('sticky')
       }else{
         $('#glueBtn').removeClass('sticky')
