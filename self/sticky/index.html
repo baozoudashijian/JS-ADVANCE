@@ -42,11 +42,9 @@
   }
 </style>
 <body>
-  <div class="topbarPlaceholder"> 
     <div id="topbar">
       topbar
     </div>
-  </div>
   <div class="main">
     <div class="sticky2">固定住2</div>
     <ul>
@@ -54,9 +52,9 @@
       <li>当年情</li>
       <li>当爱已成往事</li>
       <li>沉默是金</li>
-      <li>
         <button id="glueBtn">粘住按钮</button>
-      </li>
+      <li>玻璃之情</li>
+      <li>倩女幽魂</li>
     </ul>
   </div>
   <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
@@ -66,8 +64,15 @@
       constructor(selector, n) {
         this.elements = $(selector)
         this.offset = n || 0 // 距离顶部多少开始fixed
+        this.addPlaceHolder()
         this.cacheOffsets()
         this.listenToScroll()
+      }
+      addPlaceHolder() {
+        this.elements.each((index, element) => {
+          $(element).wrap('<div class="stickyPlaceholder"></div>')
+          $(element).parent().height($(element).height())
+        })
       }
       cacheOffsets() {
         this.offsets = []
@@ -76,20 +81,7 @@
         })
       }
       listenToScroll() {
-        // $(window).on('scroll', () => {
-        //   var scrollY = window.scrollY
-        //   this.elements.each((index, element) => {
-        //     var $element = $(element)
-        //     if(scrollY + this.offset > this.offsets[index].top) {
-        //       $element.addClass('sticky')
-        //     }else{
-        //       $element.removeClass('sticky')
-        //     }
-        //   })
-        // })
-        
-        // 第一次提交代码为什么出错的问题
-        window.onscroll = () => {
+        $(window).on('scroll', () => {
           var scrollY = window.scrollY
           this.elements.each((index, element) => {
             var $element = $(element)
@@ -99,7 +91,20 @@
               $element.removeClass('sticky')
             }
           })
-        }
+        })
+        
+        // 第一次提交代码为什么出错的问题
+        // window.onscroll = () => {
+        //   var scrollY = window.scrollY
+        //   this.elements.each((index, element) => {
+        //     var $element = $(element)
+        //     if(scrollY + this.offset > this.offsets[index].top) {
+        //       $element.addClass('sticky')
+        //     }else{
+        //       $element.removeClass('sticky')
+        //     }
+        //   })
+        // }
       }
     }
 
