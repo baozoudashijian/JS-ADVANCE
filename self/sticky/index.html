@@ -16,15 +16,6 @@
     color: #fff;
     text-align: center;
   }
-  #topbar.sticky {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
-  .topbarPlaceholder {
-    height: 60px;
-  }
   .main {
     height: 800px
   }
@@ -35,10 +26,14 @@
     width: 100px;
     height: 40px;
   }
-  #glueBtn.sticky {
+
+  /* ------- 组件提供样式 ------ */
+
+  .sticky {
     position: fixed;
-    top: 60px;
+    top: 0;
     left: 0;
+    width: 100%;
   }
 </style>
 <body>
@@ -86,7 +81,7 @@
           this.elements.each((index, element) => {
             var $element = $(element)
             if(scrollY + this.offset > this.offsets[index].top) {
-              $element.addClass('sticky')
+              $element.addClass('sticky').css({top: this.offset})
             }else{
               $element.removeClass('sticky')
             }
