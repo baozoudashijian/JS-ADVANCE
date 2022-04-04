@@ -5,21 +5,29 @@
   <title>sticky</title>
 </head>
 <style>
-  body {
-    height: 8000px;
-  }
-  .sticky {
-    width: 100%;
+  #topbar {
+    background-color: green;
     height: 60px;
-    background-color: #c00
+    line-height: 60px;
+    color: #fff;
+    text-align: center;
+  }
+  #topbar.sticky {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+  }
+  .main {
+    height: 800px
   }
   .main ul {
     list-style: none;
   }
 </style>
 <body>
-  <div class="">
-    <div class="sticky">固定住</div>
+  <div id="topbar">
+    topbar
   </div>
   <div class="main">
     <div class="sticky2">固定住2</div>
@@ -32,27 +40,15 @@
   </div>
   <script src="https://code.jquery.com/jquery-1.8.3.js"></script>
   <script>
-    function Sticky(element) {
-      var elementTop = $(element).offset().top
-      window.onscroll = function() { //window.scroll 多个组件的话会覆盖.
-        var scrollTop = $(document).scrollTop()
-        if(scrollTop > elementTop) {
-          $(element).css({
-            position: 'fixed'
-          })
-        } else {
-          $(element).css({
-            position: 'static'
-          })
-        }
-        console.log(scrollTop)
+    // 直接上来就封装组件，我目前不具备这个能力。
+    $(window).on('scroll', () => {
+      var scrollY = window.scrollY
+      if(scrollY > 0) {
+        $('#topbar').addClass('sticky')
+      } else {
+        $('#topbar').removeClass('sticky')
       }
-
-
-    }
-
-    new Sticky('.sticky')
-    new Sticky('.sticky2')
+    })
   </script>
 </body>
 </html>
